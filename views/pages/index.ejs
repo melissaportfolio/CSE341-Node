@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
- 
+ <title>
+     Postal Rates
+ </title>
 </head>
 ​
 <body>
 ​
- <form action="/math" method="GET">
-    <label for="operand1">Operand 1:</label><br>
-    <input type="text" name="operand1"><br>
-    <label for="operand2">Operand 2:</label>
-    <br>
-    <input type="text" name="operand2">
-    <br>
-    <label for="operator">Operator:</label><br>
-    <select name="operator">
-      <option value='add'>Add</option>
-      <option value='subtract'>Subtract</option>
-      <option value='multiply'>Multiply</option>
-      <option value='divide'>Divide</option>
+ <h1>Postal Rates</h1>
 ​
-    </select>
-    <button type="submit">Submit</button>
+<form action="/getRate" method="GET">
+    <select name="postalRate">
+        <option value='lettersStamped'>Letters - Stamped</option>
+        <option value='lettersMetered'>Letters - Metered</option>
+        <option value='largeEnvelopes'>Large Envelopes - Flats</option>
+        <option value='firstClass'>First Class Package Service - Retail</option>
+    </select><br>
+
+
+    <label for="postalRate1">Letters - Stamped</label><br>
+    <input type="text" name="postalRate1"><br>
+    <label for="postalRate2">Letters - Metered</label><br>
+    <input type="text" name="postalRate2"><br>
+    <label for="postalRate3">Large Envelopes - Flats</label><br>
+    <input type="text" name="postalRate3"><br>
+    <label for="postalRate4">First Class Package Service - Retail</label><br>
+    <input type="text" name="postalRate4"><br>
+
+<button type="submit">Calculate</button>
 </form>
-​
-<h3>Result</h3>
+
+<h2>Cost:</h2>
 <p><%= result %></p>
-​
-​
 </body>
 </html>

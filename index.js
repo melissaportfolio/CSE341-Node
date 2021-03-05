@@ -1,3 +1,4 @@
+// example
 // const express = require('express')
 // const path = require('path')
 // const PORT = process.env.PORT || 5000
@@ -9,79 +10,106 @@
 //   .get('/', (req, res) => res.render('pages/index'))
 //   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
-const express = require('express')
-const app = express()
-const path = require('path')
-const { nextTick } = require('process')
-const PORT = process.env.PORT || 5000
-const url = require('url')
-​
-express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/team', function (req, res, next) {
-     res.render('pages/index',  {
-       result: ''
-     })
-     next()
-  }, function (req, res)  {
-    // console.log('inside function')
-  })
-  .get('/math', function (req, res)  {
-​
-    const request = req.query
-​
-    number1 = Number(request.operand1)
-    number2 = Number(request.operand2)
-​
-    switch(request.operator) {
-      case 'add':
-        result = number1 + number2
-        break;
-      case 'subtract':
-        result = number1 - number2
-        break;
-      case 'multiply':
-        result = number1 * number2
-        break;
-      case 'divide':
-        result = number1 / number2
-        break;
-      default:
-        break;
-    }
-    console.log(result)
-    res.render('pages/index', {
-      result: result
+const express = require('express');
+const app = express();
+const path = require('path');
+
+app.use(express.static("public"));
+
+app.set('views', path.join(__dirname, 'views'));
+app.set("view engine", "ejs");
+app.get('/getRate', function(req, res, next) {
+  res.render('pages/index', {
+    result: ''
   });
-  })
-  .get('/math_service', function (req, res)  {
-​
-    const request = req.query
-​
-    number1 = Number(request.operand1)
-    number2 = Number(request.operand2)
-​
-    switch(request.operator) {
-      case 'add':
-        result = number1 + number2
-        break;
-      case 'subtract':
-        result = number1 - number2
-        break;
-      case 'multiply':
-        result = number1 * number2
-        break;
-      case 'divide':
-        result = number1 / number2
-        break;
-      default:
-        break;
-    }
-    console.log(result)
-    res.render('pages/index', 
-      JSON.stringify({result: result})
-  );
-  })
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+});
+
+app.get("/", function(req, res) {
+  console.log("Received request for root /");
+
+  res.write("This is the root");
+  res.end();
+});
+
+
+
+
+
+//POSTAL RATES PAGE
+app.get("/getRate", function(req, res) {
+  const request = req.query;
+
+  //letters - stamped
+  rate1 = Number(request.postalRate1);
+
+  //letters - metered
+  rate2 = Number(request.postalRate2);
+
+  //large envelopes
+  rate3 = Number(request.postalRate3);
+
+  //first class package service - retail
+  rate4 = Number(request.postalRate4);
+
+  switch(request.postalRate) {
+    case 'lettersStamped':
+      result = 1 + 1;
+      break;
+    case 'lettersMetered':
+      result = 1 + 2;
+      break;
+    case 'largeEnvelopes':
+      result = 1 + 3;
+      break;
+    case 'firstClass':
+      result = 1 + 4;
+      break;
+    default:
+      break;
+  }
+  console.log(result);
+  res.render('pages/index', {
+    result: result
+  });
+
+
+  res.write("this is the rate page");
+  res.end();
+});
+
+
+
+
+
+// app.get("/home", function(req, res){
+//   //controller
+//     console.log("Received request for home page");
+//   const name = getCurrentUser();
+//   const emailAddress = "john@email.com";
+
+//   const params = {username: name, email: emailAddress};
+//   res.render("home", params);
+
+//   // res.render("index");
+  
+// });
+
+app.listen(5000, function() {
+  console.log("The server is running on port 5000");
+});
+
+// function renderHomePage(name) {
+//   //view
+//   res.write("<html><head><title>Home</title></head>");
+//   res.write("<body>");
+//   res.write("<h1>This is the home page</h1>");
+//   res.write("<h2> Welcome " + name + "</h2>");
+//   res.write("</body><</html>");
+//   res.end();
+// }
+
+//model
+// function getCurrentUser() {
+//   return "John";
+// }
+
