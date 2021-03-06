@@ -1,7 +1,7 @@
 // example
 // const express = require('express')
 // const path = require('path')
-// const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000
 
 // express()
 //   .use(express.static(path.join(__dirname, 'public')))
@@ -94,7 +94,7 @@ app.get("/getRate", function(req, res) {
   
 // });
 
-app.listen(5000, function() {
+app.listen(PORT, function() {
   console.log("The server is running on port 5000");
 });
 
