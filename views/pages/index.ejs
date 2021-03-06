@@ -4,34 +4,38 @@
  <title>
      Postal Rates
  </title>
+ <%- include ("../partials/header.ejs") %>
 </head>
 ​
 <body>
-​
- <h1>Postal Rates</h1>
-​
+    
+​<div class="box">
+    <hr>
+ <h1>Postal Rate Calculator</h1>
+ <hr>
+​<h2>Select Mail Type:</h2>
 <form action="/getRate" method="GET">
     <select name="postalRate">
         <option value='lettersStamped'>Letters - Stamped</option>
         <option value='lettersMetered'>Letters - Metered</option>
         <option value='largeEnvelopes'>Large Envelopes - Flats</option>
         <option value='firstClass'>First Class Package Service - Retail</option>
-    </select><br>
+    </select><br><br><br>
 
 
-    <label for="weight">Weight</label><br>
-    <input type="text" name="weight"><br>
-    <!-- <label for="postalRate2">Letters - Metered</label><br>
-    <input type="text" name="postalRate2"><br>
-    <label for="postalRate3">Large Envelopes - Flats</label><br>
-    <input type="text" name="postalRate3"><br>
-    <label for="postalRate4">First Class Package Service - Retail</label><br>
-    <input type="text" name="postalRate4"><br> -->
+    <label for="weight">Weight in Pounds:</label><br><br>
+    <input type="text" name="weight"><br><br><br>
+
 
 <button type="submit">Calculate</button>
 </form>
 
-<h2>Cost:</h2>
-<p><%= result %></p>
+<h3>Total Cost:</h3>
+<p>$<%= result %></p>
+<hr>
+</div>
+<footer>
+    <a href="https://pe.usps.com/text/dmm300/Notice123.htm">Rates courtesy of USPS.com</a> | Melissa Hall | CSE341 BYU Idaho
+</footer>
 </body>
 </html>

@@ -54,21 +54,59 @@ const weight = Number(request.weight);
   // rate4 = Number(request.postalRate4);
 
   switch(request.postalRate) {
+    
     case 'lettersStamped':
-      result = weight + 1;
+      if (weight <= 1){
+        result = .55;
+      }
+      if (weight <=2) {
+        result = .75;
+      }
+      if (weight <=3) {
+        result = .95;
+      }
+      if (weight <=3.5) {
+        result = 1.15;
+      }
       break;
     case 'lettersMetered':
-      result = weight + 2;
+      if (weight <= 1){
+        result = .51;
+      }
+      if (weight <=2) {
+        result = .71;
+      }
+      if (weight <=3) {
+        result = .91;
+      }
+      if (weight <=3.5) {
+        result = 1.11;
+      }
       break;
     case 'largeEnvelopes':
-      result = weight + 3;
+      if (weight == 1) {
+        result = 1;
+      }
+      result = weight * 1;
       break;
     case 'firstClass':
-      result = weight + 4;
+      if (weight <=4) {
+        result = 4.00;
+      }
+      if (weight >= 5 && weight <9) {
+        result = 4.80;
+      }
+      if (weight >=9 && weight <13) {
+        result = 5.50;
+      }
+      if (weight >=13) {
+        result = 6.25;
+      }
       break;
     default: 
       break;
   }
+
   params = {
     result: result
   };
