@@ -18,11 +18,11 @@ app.use(express.static("public"));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
-app.get('/getRate', function(req, res, next) {
-  res.render('pages/index', {
-    result: ''
-  });
-});
+// app.get('/getRate', function(req, res, next) {
+//   res.render('pages/index', {
+//     result: ''
+//   });
+// });
 
 app.get("/", function(req, res) {
   console.log("Received request for root /");
@@ -40,9 +40,9 @@ app.get("/getRate", function(req, res) {
   const request = req.query;
 
   console.log("get rate");
-
+  var result = 0;
   //letters - stamped
-  rate1 = Number(request.weight);
+const weight = Number(request.weight);
 
   // //letters - metered
   // rate2 = Number(request.postalRate2);
@@ -55,28 +55,29 @@ app.get("/getRate", function(req, res) {
 
   switch(request.postalRate) {
     case 'lettersStamped':
-      result = 1 + 1;
+      result = weight + 1;
       break;
     case 'lettersMetered':
-      result = 1 + 2;
+      result = weight + 2;
       break;
     case 'largeEnvelopes':
-      result = 1 + 3;
+      result = weight + 3;
       break;
     case 'firstClass':
-      result = 1 + 4;
+      result = weight + 4;
       break;
-    default:
+    default: 
       break;
   }
-  console.log(result);
-  res.render('pages/index', {
+  params = {
     result: result
-  });
+  };
+  console.log(result);
+  res.render('pages/index', params);
 
 
-  res.write("this is the rate page");
-  res.end();
+  // res.write("this is the rate page");
+  // res.end();
 });
 
 
