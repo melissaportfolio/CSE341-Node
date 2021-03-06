@@ -39,17 +39,19 @@ app.get("/", function(req, res) {
 app.get("/getRate", function(req, res) {
   const request = req.query;
 
+  console.log("get rate");
+
   //letters - stamped
-  rate1 = Number(request.postalRate1);
+  rate1 = Number(request.weight);
 
-  //letters - metered
-  rate2 = Number(request.postalRate2);
+  // //letters - metered
+  // rate2 = Number(request.postalRate2);
 
-  //large envelopes
-  rate3 = Number(request.postalRate3);
+  // //large envelopes
+  // rate3 = Number(request.postalRate3);
 
-  //first class package service - retail
-  rate4 = Number(request.postalRate4);
+  // //first class package service - retail
+  // rate4 = Number(request.postalRate4);
 
   switch(request.postalRate) {
     case 'lettersStamped':
