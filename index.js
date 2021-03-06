@@ -40,7 +40,7 @@ app.get("/getRate", function(req, res) {
   const request = req.query;
 
   console.log("get rate");
-  var result = 0;
+  var result = Number(0).toFixed(2);
   //letters - stamped
 const weight = Number(request.weight);
 
@@ -57,50 +57,103 @@ const weight = Number(request.weight);
     
     case 'lettersStamped':
       if (weight <= 1){
-        result = .55;
+        result = "$" + .55;
       }
-      if (weight <=2) {
-        result = .75;
+      else if (weight <=2) {
+        result = "$" + .75;
       }
-      if (weight <=3) {
-        result = .95;
+      else if (weight <=3) {
+        result = "$" + .95;
       }
-      if (weight <=3.5) {
-        result = 1.15;
+      else if (weight <=3.5) {
+        result = "$" + 1.15;
+      }
+      else {
+        result = "Please select another mailing option.";
       }
       break;
     case 'lettersMetered':
       if (weight <= 1){
-        result = .51;
+        result = "$" + .51;
       }
-      if (weight <=2) {
-        result = .71;
+      else if (weight <=2) {
+        result = "$" + .71;
       }
-      if (weight <=3) {
-        result = .91;
+      else if (weight <=3) {
+        result = "$" + .91;
       }
-      if (weight <=3.5) {
-        result = 1.11;
+      else if (weight <=3.5) {
+        result = "$" + 1.11;
+      }
+      else {
+        result = "Please select another mailing option.";
       }
       break;
+
     case 'largeEnvelopes':
-      if (weight == 1) {
-        result = 1;
+      if (weight <= 1) {
+        result = "$" + Number(1.00).toFixed(2);
       }
-      result = weight * 1;
+      else if (weight <= 2) {
+        result = "$" + Number(1.20).toFixed(2);
+      }
+      else if (weight <= 3) {
+        result = "$" + Number(1.40).toFixed(2);
+      }
+      else if (weight <= 4) {
+        result = "$" + Number(1.60).toFixed(2);
+      }
+      else if (weight <= 5) {
+        result = "$" + Number(1.80).toFixed(2);
+      }
+      else if (weight <= 6) {
+        result = "$" + Number(2.00).toFixed(2);
+      }
+      else if (weight <= 7) {
+        result = "$" + Number(2.20).toFixed(2);
+      }
+      else if (weight <= 8) {
+        result = "$" + Number(2.40).toFixed(2);
+      }
+      else if (weight <= 9) {
+        result = "$" + Number(2.60).toFixed(2);
+      }
+      else if (weight <= 10) {
+        result = "$" + Number(2.80).toFixed(2);
+      }
+      else if (weight <= 11) {
+        result = "$" + Number(3.00).toFixed(2);
+      }
+      else if (weight <= 12) {
+        result = "$" + Number(3.20).toFixed(2);
+      }
+      else if (weight <= 13) {
+        result = "$" + Number(3.40).toFixed(2);
+      }
+      else {
+        result = "Please select another mailing option.";
+      }
+
       break;
     case 'firstClass':
+      //packages between 1 and 4 oz
       if (weight <=4) {
-        result = 4.00;
+        result = "$" + Number(4.00).toFixed(2);
       }
-      if (weight >= 5 && weight <9) {
-        result = 4.80;
+      //packages between 5 and 8 oz
+      else if (weight <= 5 && weight <9) {
+        result = "$" + Number(4.80).toFixed(2);
       }
-      if (weight >=9 && weight <13) {
-        result = 5.50;
+      //packages between 9 and 12 oz
+      else if (weight <=9 && weight <13) {
+        result = "$" + Number(5.50).toFixed(2);
       }
-      if (weight >=13) {
-        result = 6.25;
+      //packages 13 oz
+      else if (weight <=13) {
+        result = "$" + 6.25;
+      }
+      else {
+        result = "Please select another mailing option.";
       }
       break;
     default: 
