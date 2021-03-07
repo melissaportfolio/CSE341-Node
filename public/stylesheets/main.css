@@ -25,19 +25,27 @@
     .jumbotron .lang-logo img {
       max-width: 100%; } */
 
+      /* font-family: 'Mukta', sans-serif;
+      font-family: 'Recursive', sans-serif; */
+
 html, body {
   background-color: darkblue;
 }
 
 .box {
+background-color: dodgerblue;
+
+}
+
+.box2 {
   background-color: antiquewhite;
 }
 
 h1 {
-  color: darkblue;
+  color: antiquewhite;
   padding: 20px;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Recursive', sans-serif;
   font-size: 40px;
   font-weight: bold;
 }
@@ -45,37 +53,37 @@ h1 {
 h2, h3 {
   padding: 20px;
   font-size: 25px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Mukta', sans-serif;
 }
 
 form {
   padding: 20px;
-  font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-family: 'Mukta', sans-serif;
 }
 
 p {
   padding: 20px;
-  font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-family: 'Mukta', sans-serif;
 }
 
 hr {
-  border: 5px solid darkred;
+  border: 8px solid darkred;
 }
 
 footer {
   text-align: center;
   color: antiquewhite;
   font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Mukta', sans-serif;
   padding-bottom: 20px;
 }
 
 a {
   text-align: center;
   color: wheat;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Mukta', sans-serif;
 }
 a:hover {
   color:cornflowerblue;
