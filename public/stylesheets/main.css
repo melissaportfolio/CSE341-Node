@@ -32,6 +32,12 @@ html, body {
   background-color: darkblue;
 }
 
+.container-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* column-gap: 15px; */
+}
+
 .box {
 background-color: dodgerblue;
 
@@ -39,8 +45,42 @@ background-color: dodgerblue;
 
 .box2 {
   background-color: antiquewhite;
+  display: grid;
+  grid-column: 1;
+  width: 95%;
 }
 
+.box3 {
+  background-color:antiquewhite;
+  display: grid;
+  grid-column: 2;
+  width: 95%;
+  grid-row: 1;
+  border-radius: 200px 0 200px;
+  border: solid darkblue 8px;
+}
+
+.box3 p {
+  color:darkred;
+  text-align: center;
+  font-family: 'Recursive', sans-serif;
+  font-size: 40px;
+  animation-name: quote;
+  animation-duration: 4s;
+  vertical-align: middle;
+}
+
+@keyframes quote {
+  from {
+      
+      font-size: 5px;
+  }
+
+  to {
+      
+      font-size: 80px;
+  }
+}
 h1 {
   color: antiquewhite;
   padding: 20px;
@@ -88,3 +128,12 @@ a {
 a:hover {
   color:cornflowerblue;
 }
+
+button {
+  background-color: dodgerblue;
+  color: antiquewhite;
+  font-family: 'Mukta', sans-serif;
+  font-size: 20px;
+  border-radius: 5px 5px 5px 5px;
+}
+
