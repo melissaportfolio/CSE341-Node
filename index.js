@@ -46,7 +46,7 @@ const weight = Number(request.weight);
 
  
 
-  switch(request.postalRate) {
+  switch(request.calculateRate) {
     
     case 'lettersStamped':
       if (weight <= 1){
