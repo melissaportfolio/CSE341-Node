@@ -44,14 +44,7 @@ app.get("/getRate", function(req, res) {
   //letters - stamped
 const weight = Number(request.weight);
 
-  // //letters - metered
-  // rate2 = Number(request.postalRate2);
-
-  // //large envelopes
-  // rate3 = Number(request.postalRate3);
-
-  // //first class package service - retail
-  // rate4 = Number(request.postalRate4);
+ 
 
   switch(request.postalRate) {
     
@@ -59,30 +52,32 @@ const weight = Number(request.weight);
       if (weight <= 1){
         result = "$" + .55;
       }
-      else if (weight <=2) {
+      else if (weight > 1 && weight <=2) {
         result = "$" + .75;
       }
-      else if (weight <=3) {
+      else if (weight > 2 && weight <=3) {
         result = "$" + .95;
       }
-      else if (weight <=3.5) {
+      else if (weight > 3 && weight <=3.5) {
         result = "$" + 1.15;
       }
       else {
         result = "Please select another mailing option.";
       }
       break;
+
+
     case 'lettersMetered':
       if (weight <= 1){
         result = "$" + .51;
       }
-      else if (weight <=2) {
+      else if (weight > 1 && weight <=2) {
         result = "$" + .71;
       }
-      else if (weight <=3) {
+      else if (weight > 2 && weight <=3) {
         result = "$" + .91;
       }
-      else if (weight <=3.5) {
+      else if (weight > 3 && weight <=3.5) {
         result = "$" + 1.11;
       }
       else {
@@ -90,44 +85,45 @@ const weight = Number(request.weight);
       }
       break;
 
+
     case 'largeEnvelopes':
       if (weight <= 1) {
         result = "$" + Number(1.00).toFixed(2);
       }
-      else if (weight <= 2) {
+      else if (weight > 1 && weight <=2) {
         result = "$" + Number(1.20).toFixed(2);
       }
-      else if (weight <= 3) {
+      else if (weight > 2 && weight <=3) {
         result = "$" + Number(1.40).toFixed(2);
       }
-      else if (weight <= 4) {
+      else if (weight > 3 && weight <=4) {
         result = "$" + Number(1.60).toFixed(2);
       }
-      else if (weight <= 5) {
+      else if (weight > 4 && weight <=5) {
         result = "$" + Number(1.80).toFixed(2);
       }
-      else if (weight <= 6) {
+      else if (weight > 5 && weight <=6) {
         result = "$" + Number(2.00).toFixed(2);
       }
-      else if (weight <= 7) {
+      else if (weight > 6 && weight <=7) {
         result = "$" + Number(2.20).toFixed(2);
       }
-      else if (weight <= 8) {
+      else if (weight > 7 && weight <=8) {
         result = "$" + Number(2.40).toFixed(2);
       }
-      else if (weight <= 9) {
+      else if (weight > 8 && weight <=9) {
         result = "$" + Number(2.60).toFixed(2);
       }
-      else if (weight <= 10) {
+      else if (weight > 9 && weight <=10) {
         result = "$" + Number(2.80).toFixed(2);
       }
-      else if (weight <= 11) {
+      else if (weight > 10 && weight <=11) {
         result = "$" + Number(3.00).toFixed(2);
       }
-      else if (weight <= 12) {
+      else if (weight > 11 && weight <=12) {
         result = "$" + Number(3.20).toFixed(2);
       }
-      else if (weight <= 13) {
+      else if (weight > 12 && weight <=13) {
         result = "$" + Number(3.40).toFixed(2);
       }
       else {
@@ -135,21 +131,24 @@ const weight = Number(request.weight);
       }
 
       break;
+
+
+
     case 'firstClass':
       //packages between 1 and 4 oz
       if (weight <=4) {
         result = "$" + Number(4.00).toFixed(2);
       }
       //packages between 5 and 8 oz
-      else if (weight <= 5 && weight <9) {
+      else if (weight > 4 && weight <=8) {
         result = "$" + Number(4.80).toFixed(2);
       }
       //packages between 9 and 12 oz
-      else if (weight <=9 && weight <13) {
+      else if (weight > 8 && weight <=12) {
         result = "$" + Number(5.50).toFixed(2);
       }
       //packages 13 oz
-      else if (weight <=13) {
+      else if (weight >12 && weight <= 13) {
         result = "$" + 6.25;
       }
       else {
